@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		
+		
+	    <link rel="stylesheet" type="text/css" href="libs/dist/css/bootstrap.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/global_color.css"/>
+	    <script src="libs/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="libs/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="libs/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="libs/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<style type="text/css">
+	    #header{height:60px;background:url(images/top_bg.png) no-repeat;position: relative;left:20px}
+	    #logo{height:60px;width:130px;margin-left:-20px;}
+	    #logo img{width:100%;height:100%;}
+	    .tit{position: absolute;left:100px;top:8px;font-size: 34px;color:#fff}
+	    #header a{position: absolute;right:0;top:1px;font-size:20px;}
+	    .container{margin-left:0;}
+	    
+	    .left{margin-top:5px}
+	    .kongbai{height:200px;position:relative}
+	    #pic{position:absolute;left:20px;top:10px;}
+		#pic img{height:80px;width:80px;border-radius: 50%;display: block;margin-left:40px;}
+		#pic p{font-size: 24px;margin-top:10px}
+	    .zhuye{font-weight: bold;font-size: 24px;}
+		.guanli{font-weight: bold;font-size: 24px;}
+		.guanli i{display: inline-block;margin-left:100px}
+		#guanli{display:none;}
+		#guanli .list1{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		#guanli .list2{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		#guanli .list3{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		.shiwu{font-weight: bold;font-size: 24px;}
+		.shiwu i{display: inline-block;margin-left:100px}
+		#shiwu{display:none;}
+		#shiwu .list4{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		#shiwu .list5{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		#shiwu .list6{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		#shiwu .list7{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		.geren{font-weight: bold;font-size: 24px;}
+		.geren i{display: inline-block;margin-left:100px}
+		#geren{display:none;}
+		#geren .list8{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		#geren .list9{border-top:0;border-left:0;border-right:0;background:#0492d4;color:#fff;font-size:20px;font-weight: 700;}
+		/*首页*/
+		#bg{width:100%;height:100%;background:brown;position: relative;}
+		#bg img{width:136%;height:150%;}
+		.title{position:absolute;left:30px;top:40px;font-size: 60px;font-weight: bold;}
+		
+		/*角色管理*/
+		#main{margin-top:20px;margin-left:5px;}
+		.search_add input{background:url(images/btn_bg.png) no-repeat}
+	</style>
+	
+	
+	</head>
+	<body ng-controller="myCtrl">
+		<div class="container">
+			<div id="header">
+				<div id="logo">
+					<img src="images/logo.png" />
+				</div>
+				<p class="tit">卓尼学习管理系统</p>
+				<!--<a href="#">[退出]</a>-->
+			</div>
+		</div>
+		<div class="container">
+			
+			<div class="col-xs-3 col-md-3 col-sm-2 left">
+				
+				<ul class="list-group">
+					<a href="#"><li class="list-group-item kongbai">
+						<div id="pic">
+							<img class="pic" src="images/IMG_0197.JPG"/>
+							<p>创始人：闻女士</p>
+						</div>
+					</li></a>
+					<a href="#!/home"><li class="list-group-item zhuye">主页</li></a>
+					
+					<a><li class="list-group-item guanli" ng-click="guanliBtn()">管理<i class="glyphicon glyphicon-chevron-right"></i></li></a>
+					<div id="guanli">
+						<a href="#!/jiaose"><li class="list-group-item list1">角色管理</li></a>
+						<a href="#!/guanliyuan"><li class="list-group-item list2">管理员</li></a>
+						<a href="#!/zifeiguanli"><li class="list-group-item list3">资费管理</li></a>
+					</div>
+					<a><li class="list-group-item shiwu" ng-click="shiwuBtn()">事务<i class="glyphicon glyphicon-chevron-right"></i></li></a>
+					<div id="shiwu">
+						<a href="#!/zhangwu"><li class="list-group-item list4">账务账号</li></a>
+						<a href="#!/yewu"><li class="list-group-item list5">业务账号</li></a>
+						<a href="#!/zhangdan"><li class="list-group-item list6">账单管理</li></a>
+						<a href="#!/baobiao"><li class="list-group-item list7">报表</li></a>
+					</div>
+					<a><li class="list-group-item geren" ng-click="gerenBtn()">个人<i class="glyphicon glyphicon-chevron-right"></i></li></a>
+					<div id="geren">
+						<a href="#!/geren"><li class="list-group-item list8">个人信息</li></a>
+					    <a href="#!/xiugai"><li class="list-group-item list9">修改密码</li></a>
+					</div>
+					
+				</ul>
+			</div>
+			<div class="col-xs-9">
+				<!--<ng-view></ng-view>-->
+				<div ng-view></div>
+			</div>
+		</div>
+		
+	</body>
+	
+	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/baobiao.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/geren.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/guanliyuan.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jiaose.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/xiugai.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/yewu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/zhangdan.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/zhangwu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/zifeiguanli.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/role_modi.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/role_add.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/admin_add.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/admin_modi.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/fee_add.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/fee_modi.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/account_add.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/account_modi.js" type="text/javascript" charset="utf-8"></script>
+</html>
