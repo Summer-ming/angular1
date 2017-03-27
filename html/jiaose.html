@@ -1,0 +1,44 @@
+<!--主要区域开始-->
+        <div id="main">
+            <form action="" method="">
+                <!--查询-->
+                <div class="search_add">
+                    <input type="button" value="增加" class="btn_add" ng-click="add()" />
+                </div>  
+                <!--删除的操作提示-->
+                <div id="operate_result_info" class="operate_success">
+                    <img src="../images/close.png" ng-click="this.parentNode.style.display='none';" />
+                    删除成功！
+                </div> <!--删除错误！该角色被使用，不能删除。-->
+                <!--数据区域：用表格展示数据-->     
+                <div id="data">                      
+                    <table id="datalist">
+                       <tr>                            
+                            <th>角色 ID</th>
+                            <th>角色名称</th>
+                            <th class="width600">拥有的权限</th>
+                            <th class="td_modi"></th>
+                        </tr>                      
+                        <tr ng-repeat="user in users track by $index" class="list">
+                            <td>{{$index}}</td>
+                            <td>{{user.user}}</td>
+                            <td>{{user.have}}</td>
+                            <td>
+                                <input type="button" value="修改" class="btn_modify" ng-click="change($index)"/>
+                                <input type="button" value="删除" class="btn_delete" ng-click="deleteRole($index);" />
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+                <!--分页-->
+                <div id="pages">
+        	        <a href="#">上一页</a>
+                    <a href="#" class="current_page">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">下一页</a>
+                </div>
+            </form>
+        </div>
